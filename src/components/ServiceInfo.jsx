@@ -3,6 +3,7 @@ import { GiPeaceDove } from "react-icons/gi";
 function ServiceInfo() {
   return (
     <section
+      id="service"
       className="px-6 py-12 sm:pl-16 md:pl-24 sm:py-12
                  sm:flex-none sm:min-h-0
                  flex sm:block items-center justify-center min-h-screen"
