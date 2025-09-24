@@ -24,6 +24,7 @@ function TravelNote() {
 
   return (
     <section
+      id="travel"
       className="pl-8 pr-8 sm:pl-16 sm:pr-16 md:pl-24 md:pr-24 py-12"
       style={{ color: "#a178d0" }}
     >
