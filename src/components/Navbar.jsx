@@ -36,7 +36,7 @@ function Navbar() {
 
       <button
         onClick={() => setOpen(!open)}
-        className={`fixed top-1/2 right-0 transform -translate-y-1/2 sm:hidden text-purple-600 hover:text-purple-800 transition-transform duration-300`}
+        className={`fixed top-1/2 right-0 transform -translate-y-1/2 sm:hidden text-purple-600 hover:text-purple-800 transition-transform duration-300 z-50`}
       >
         <AiOutlineDoubleLeft
           size={26}
