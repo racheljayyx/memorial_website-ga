@@ -5,6 +5,7 @@ import Gallery from "../components/Gallery";
 import Guestbook from "../components/Guestbook";
 import Navbar from "../components/Navbar";
 import LivestreamInfo from "../components/LivestremInfo";
+import Support from "../components/Support";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <LivestreamInfo />
       <ServiceInfo />
       <TravelNote />
+      <Support />
     </div>
   );
 }
