@@ -11,6 +11,7 @@ function Home() {
     <div>
       <Hero />
       <Navbar />
+       <Gallery />
       <LivestreamInfo />
       <ServiceInfo />
       <TravelNote />
