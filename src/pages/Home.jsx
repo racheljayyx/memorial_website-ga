@@ -4,12 +4,14 @@ import TravelNote from "../components/TravelNote";
 import Gallery from "../components/Gallery";
 import Guestbook from "../components/Guestbook";
 import Navbar from "../components/Navbar";
+import LivestreamInfo from "../components/LivestremInfo";
 
 function Home() {
   return (
     <div>
       <Hero />
       <Navbar />
+      <LivestreamInfo />
       <ServiceInfo />
       <TravelNote />
     </div>
