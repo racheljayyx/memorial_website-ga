@@ -37,7 +37,7 @@ function TravelNote() {
   return (
     <section
       id="travel"
-      className="pl-8 pr-8 sm:pl-16 sm:pr-16 md:pl-24 md:pr-24 py-12 bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl transition-all duration-700"
+      className="px-6 sm:pl-16 md:pl-24 py-12 bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl transition-all duration-700"
       style={{ color: "#a178d0" }}
     >
       <LuNotepadText className="text-[80px] sm:text-[100px] md:text-[120px] mb-4 animate-bounce-slow" />
@@ -63,7 +63,8 @@ function TravelNote() {
           <FaCar className="text-4xl text-purple-500 mb-2" />
           <h3 className="font-medium text-lg">By Car</h3>
           <p className="text-gray-600 text-sm">
-            Parking avaliable at the following locations: <br /> - Opposite Christ Faith Tabernacle <br /> - Tesco <br /> - Sainsburys
+            Parking available at the following locations: <br /> - Opposite
+            Christ Faith Tabernacle <br /> - Tesco <br /> - Sainsburys
           </p>
         </div>
 
@@ -71,7 +72,8 @@ function TravelNote() {
           <FaTrain className="text-4xl text-purple-500 mb-2" />
           <h3 className="font-medium text-lg">By Train</h3>
           <p className="text-gray-600 text-sm">
-            Closest stations: Woolwich Arsenal (Southeastern, Thameslink, DLR), Woolwich (Elizabeth Line)
+            Closest stations: Woolwich Arsenal (Southeastern, Thameslink, DLR),
+            Woolwich (Elizabeth Line)
           </p>
         </div>
 
