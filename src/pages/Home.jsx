@@ -6,6 +6,7 @@ import Guestbook from "../components/Guestbook";
 import Navbar from "../components/Navbar";
 import LivestreamInfo from "../components/LivestremInfo";
 import Support from "../components/Support";
+import Salvation from "../components/Salvation";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
       <ServiceInfo />
       <TravelNote />
       <Support />
+      <Salvation />
     </div>
   );
 }
