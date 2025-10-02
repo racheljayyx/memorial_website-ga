@@ -4,6 +4,7 @@ import { app } from "../firebaseConfig";
 
 function Gallery({ folder = "gallery" }) {
   const [media, setMedia] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const words = [
     "Mother",
@@ -29,25 +30,48 @@ function Gallery({ folder = "gallery" }) {
 
   useEffect(() => {
     const fetchMedia = async () => {
-      const storage = getStorage(app);
-      const listRef = ref(storage, folder);
-      const res = await listAll(listRef);
+      try {
+        const cached = localStorage.getItem("gallery");
+        if (cached) {
+          setMedia(JSON.parse(cached));
+          setLoading(false);
+          return;
+        }
 
-      const urls = await Promise.all(
-        res.items.map(async (itemRef) => {
-          const url = await getDownloadURL(itemRef);
-          const ext = itemRef.name.split(".").pop().toLowerCase();
-          return { src: url, type: ext === "mp4" ? "video" : "image" };
-        })
-      );
+        const storage = getStorage(app);
+        const listRef = ref(storage, folder);
+        const res = await listAll(listRef);
 
-      setMedia(shuffleArray(urls));
+        const urls = await Promise.all(
+          res.items.map(async (itemRef) => {
+            const url = await getDownloadURL(itemRef);
+            const ext = itemRef.name.split(".").pop().toLowerCase();
+            return { src: url, type: ext === "mp4" ? "video" : "image" };
+          })
+        );
+
+        const shuffled = shuffleArray(urls);
+        setMedia(shuffled);
+        setLoading(false);
+
+        localStorage.setItem("gallery", JSON.stringify(shuffled));
+
+        shuffled.forEach((item) => {
+          if (item.type === "image") {
+            const img = new Image();
+            img.src = item.src;
+          }
+        });
+      } catch (err) {
+        console.error("Error fetching gallery", err);
+        setLoading(false);
+      }
     };
 
     fetchMedia();
   }, [folder]);
 
-  if (media.length === 0)
+  if (loading)
     return <p className="text-center py-10 text-purple-600">Loading...</p>;
 
   return (
@@ -82,13 +106,14 @@ function Gallery({ folder = "gallery" }) {
                 key={i}
                 src={item.src}
                 alt={`media-${i}`}
-                className="inline-block mx-4 h-[50vh] sm:h-64 w-36 sm:w-48 object-cover rounded-2xl shadow-md"
+                loading="lazy"
+                className="inline-block mx-4 h-[50vh] sm:h-64 w-52 sm:w-48 object-cover rounded-2xl shadow-md"
               />
             ) : (
               <video
                 key={i}
                 src={item.src}
-                className="inline-block mx-4 h-[50vh] sm:h-64 w-36 sm:w-48 object-cover rounded-2xl shadow-md"
+                className="inline-block mx-4 h-[50vh] sm:h-64 w-52 sm:w-48 object-cover rounded-2xl shadow-md"
                 muted
                 playsInline
                 autoPlay
