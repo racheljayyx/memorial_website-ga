@@ -1,4 +1,5 @@
 import { GiPeaceDove } from "react-icons/gi";
+import { FaYoutube } from "react-icons/fa";
 
 function ServiceInfo() {
   return (
@@ -27,6 +28,31 @@ function ServiceInfo() {
         <p className="text-lg sm:text-2xl md:text-3xl leading-snug">
           New Wine Church Gateway House, London, SE18 6QQ
         </p>
+
+        <div className="mt-4 text-lg sm:text-2xl md:text-3xl">
+          <div className="flex items-center gap-3">
+            <a
+              href="https://youtube.com/live/u5vplLDpxYs?feature=share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 transition-colors"
+            >
+              <FaYoutube className="text-[40px] sm:text-[50px] md:text-[60px]" />
+            </a>
+            <span>
+              Click{" "}
+              <a
+                href="https://www.youtube.com/live/your-stream-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline hover:text-blue-600 transition-colors"
+              >
+                here
+              </a>{" "}
+              to join online alternatively
+            </span>
+          </div>
+        </div>
 
         <p className="text-xl sm:text-3xl md:text-4xl leading-snug">
           <strong>DRESS CODE:</strong> PURPLE | WHITE | BLACK
